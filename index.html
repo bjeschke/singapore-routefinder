@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="google-site-verification" content="SETLvy2dU36qLVN58ixnTIiC0ZLEQVsd5okSUEb8ekE" />
+		<script src="js/map.js"></script>
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+		<link rel='stylesheet' href='css/font-awesome.min.css' type='text/css' media='all' />
+		<link rel='stylesheet' href='css/styles.css' type='text/css' media='all' />
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<h1><i class="fa fa-map-marker" aria-hidden="true"></i>Singapore Routefinder</h1>
+			</div>
+			<div class="main">
+				<div id="mapwrapper" class="mapwrapper">	
+					<div class="form">
+						<div class="forminside">
+							<div class="box">
+								<input type="text" class="pickupinfo" id="pickupinfo" name="pickupinfo" placeholder="Pickup Info"/>
+								<input type="hidden" id="pickupinfo_lat" value="" />
+								<input type="hidden" id="pickupinfo_lng" value="" />						
+								<button class="clear fa" id="clear_pickup"></button>
+							</div>
+							<div class="box">
+								<input type="text" class="deliveryinfo" id="deliveryinfo" name="deliveryinfo" placeholder="Delivery Info" />
+								<input type="hidden" id="deliveryinfo_lat" value="" />
+								<input type="hidden" id="deliveryinfo_lng" value="" />
+								<button class="clear fa" id="clear_delivery"></button>
+							</div>
+							<button class="submit">Go</button>
+						</div>			
+					</div>
+					<div class="map" id="map" style="display:block;"></div>	
+					<div class="zoombuttons">
+						<div id="zoomin"><i class="fa fa-plus" aria-hidden="true"></i></div>
+						<div id="zoomout"><i class="fa fa-minus" aria-hidden="true"></i></div>
+					</div>
+					<div class="mapinformation">
+						<div class="mapinformationinside">
+							<div class="distance">
+								<span>Distance:</span>
+								<span id="totaldistance"></span>
+							</div>
+						</div>			
+					</div>
+					<div id="expandmap" class="expandmap">
+						<i class="fa fa-map" aria-hidden="true"></i>
+						<span class="text">Expand map</div>
+					</div>
+					<div class="maperrorcontainer">
+						<div class="maperror">
+							<span class="text">Please fill both fields with a valid address.</span>
+							<button class="ok" id="error_ok">OK</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<footer id="footer" class="site-footer">
+			<p class="copyright">© Copyright 2017 Benjamin Jeschke</p>
+		</footer>
+
+	
+	<script type="text/javascript">
+
+		$( document ).ready(function() {	
+			$('.clear').click(function(){
+				var id = $(this).attr('id').replace('clear_','');
+				$('#'+id+'info').val('');
+			});
+		});
+				
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9vv8Lhu81EhqgxlU828gRVsq63Nnn_zs&signed_in=false&libraries=places&language=en&region=sg&callback=initMap"async defer></script>
+</body>
+</html>
+
